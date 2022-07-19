@@ -1,3 +1,4 @@
+from os.path import exists
 import csv
 
 
@@ -49,6 +50,9 @@ def write_data(file_name, data):
 
 
 def analyze_log(path_to_file):
+    if not exists(path_to_file):
+        raise(FileNotFoundError("Arquivo inexistente: '{path_to_file}'"))
+
     result = []
 
     with open(path_to_file, encoding="UTF-8") as file:
