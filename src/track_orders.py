@@ -37,7 +37,14 @@ class TrackOrders:
                 value in order_amount.items() if value == 0}
 
     def get_days_never_visited_per_customer(self, customer):
-        pass
+        order_days = {order["dia"]: 0 for order in self._orders}
+        for order in self._orders:
+            dia = order["dia"]
+            cliente = order["cliente"]
+            if cliente == customer:
+                order_days[dia] += 1
+        return {key for key,
+                value in order_days.items() if value == 0}
 
     def get_busiest_day(self):
         pass
