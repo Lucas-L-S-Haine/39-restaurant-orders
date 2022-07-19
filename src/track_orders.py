@@ -7,7 +7,13 @@ class TrackOrders:
         return self._length
 
     def add_new_order(self, customer, order, day):
-        pass
+        order_info = {
+            "cliente": customer,
+            "pedido": order,
+            "dia": day,
+        }
+        self._orders.append(order_info)
+        self._length += 1
 
     def get_most_ordered_dish_per_customer(self, customer):
         pass
