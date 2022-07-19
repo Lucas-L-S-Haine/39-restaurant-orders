@@ -27,7 +27,14 @@ class TrackOrders:
                 value in order_amount.items() if value == max_amount][0]
 
     def get_never_ordered_per_customer(self, customer):
-        pass
+        order_amount = {order["pedido"]: 0 for order in self._orders}
+        for order in self._orders:
+            pedido = order["pedido"]
+            cliente = order["cliente"]
+            if cliente == customer:
+                order_amount[pedido] += 1
+        return {key for key,
+                value in order_amount.items() if value == 0}
 
     def get_days_never_visited_per_customer(self, customer):
         pass
