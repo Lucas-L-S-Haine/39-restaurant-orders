@@ -53,6 +53,9 @@ def analyze_log(path_to_file):
     if not exists(path_to_file):
         raise(FileNotFoundError("Arquivo inexistente: '{path_to_file}'"))
 
+    if path_to_file.split(".")[-1] != "csv":
+        raise(FileNotFoundError("Extensão inválida: '{path_to_file}'"))
+
     result = []
 
     with open(path_to_file, encoding="UTF-8") as file:
