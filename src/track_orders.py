@@ -47,7 +47,13 @@ class TrackOrders:
                 value in order_days.items() if value == 0}
 
     def get_busiest_day(self):
-        pass
+        order_days = {order["dia"]: 0 for order in self._orders}
+        for order in self._orders:
+            dia = order["dia"]
+            order_days[dia] += 1
+        busiest_day = max(order_days.values())
+        return [key for key,
+                value in order_days.items() if value == busiest_day][0]
 
     def get_least_busy_day(self):
         pass
