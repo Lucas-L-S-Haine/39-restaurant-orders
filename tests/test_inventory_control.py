@@ -1,4 +1,4 @@
-from src.inventory_control import InventoryControl
+from inventory_control import InventoryControl
 
 
 def test_validate_updated_the_quantity_in_stock():

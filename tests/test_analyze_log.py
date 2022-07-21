@@ -1,4 +1,4 @@
-from src.analyze_log import analyze_log
+from analyze_log import analyze_log
 import pytest
 import re
 
